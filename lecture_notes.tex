@@ -1,0 +1,28 @@
+\documentclass[11pt]{book}
+\def\byn{1} %uncomment for boxes with white background
+\input{utils/preamble}
+
+\author{{Felipe Tobar}\\Imperial College London}
+\title{\vspace{7cm} Probabilistic Generative Models}
+\input{utils/front_cover.tex}
+
+\begin{document}
+% Maketitle
+\thispagestyle{empty}		% Remove page numbering on this page
+\printtitle					% Print the title data as defined above
+  	\vfill
+\printauthor				% Print the author data as defined above
+\clearpage
+% 
+
+\input{chapters/preface}\clearpage
+
+\tableofcontents
+\clearpage
+
+\input{chapters/week1}\clearpage
+
+%\bibliography{capitulos/referencias}
+%\bibliographystyle{apacite}
+
+\end{document} 

@@ -5,11 +5,11 @@
 
 \section{Introduction}
 
-A Probabilistic generative model (PGM), or simply, GM, is a methodology for generating data. In general, the PGM is constructed and adjusted using observations with the aim to synthesise samples with the same statsitical prperties of the available observations. The \emph{probabilistic} nature of the PGMs considered follows from the fact that the data generated will be considered to be realisations of an underlying random variable (RV), e.g., $X$. 
+A Probabilistic generative model (PGM), or simply, a GM, is a methodology for generating data. In general, the PGM is constructed and adjusted using observations with the aim to synthesise samples with the same statistical properties of the available observations. The \emph{probabilistic} nature of the PGMs studied in this course follows from the fact that the available data will be considered to be realisations of an underlying random variable (RV), e.g., $X$. 
 
-In this sense, the probability distribution of $X$, denoted $P_X(x)$, as well as its probability density function (pdf) $p_X(x)$ will be central to the study of PGMs. In particular, targetting the pdf is one way of constructing PGMs, in which case the whole PGM paradigm becomes equivalent to the classical statistical modelling approach. However, as we will see in the coruse, enforcing the sought-after PGM to have an explicit parametric pdf ca be rather restrictive. 
+In this sense, the probability distribution of $X$, denoted $P_X(x)$, as well as its probability density function (pdf) $p_X(x)$ will be central to the study of PGMs. In particular, targetting the pdf is one way of constructing PGMs, in which case the whole PGM paradigm becomes equivalent to the classical statistical modelling approach. However, as we will see in the course, enforcing the sought-after PGM to have an explicit parametric pdf can be rather restrictive. 
 
-Throughout the course, we will consider a probabilisty space $(\Omega, \cF, \P)$, with 3 RVs given by the following measurable maps: 
+Throughout the course, we will consider a probability space $(\Omega, \cF, \P)$, with 3 RVs given by the following measurable maps: 
 \[
 \begin{array}{ccc}
 X:\Omega \to \cX & Y:\Omega \to \cY & Z:\Omega \to \cZ \\
@@ -38,7 +38,7 @@ We will also assume that all marginals and conditional have a density. This incl
 The generative approach aims to characterise the complete generative distribution $p(x,y,z)$, whereas, in some application-specific cases, only the discriminative model, e.g., $p(y|x)$, is needed. Let us examine the following example. 
 
 \begin{example}[Generative and discriminative views of binary classification]
-	Consider the binary classification problem, where, given an observation $X=x$, one needs to estimate its label $Y$. A discriminative model would directly parametrise $\P(Y|X=x)$. Since this is a binary classification case, without loss of generality, we can assume $Y\in\{0,1\}$, and model $\P(Y=1|X=x)$, since $\P(Y=0|X=x) = 1 - \P(Y=1|X=x)$.  A model for this probability only need to map $x\in\R^d \to \P(Y=1|X=x)\in[0,1]$. For instance, a reasonable candidate for this is
+	Consider the binary classification problem, where, given an observation $X=x$, one needs to estimate its label $Y$. A discriminative model would directly parametrise $\P(Y|X=x)$. Since this is a binary classification case, without loss of generality, we can assume $Y\in\{0,1\}$, and model $\P(Y=1|X=x)$, since $\P(Y=0|X=x) = 1 - \P(Y=1|X=x)$.  A model for this probability only needs to map $x\in\R^d \to \P(Y=1|X=x)\in[0,1]$. For instance, a reasonable candidate for this is
 	\begin{equation}
 		\P(Y=1|X=x) = \frac{1}{1+e^{-\theta^\top x},}
 	\end{equation}
@@ -48,10 +48,10 @@ The generative approach aims to characterise the complete generative distributio
 	\begin{equation}
 		p(Y=y, X=x) = p(X=x|Y=y)p(Y=y),
 	\end{equation}
-	which yields a much more intuitive distributions to model: 
+	which yields a pair of much more intuitive distributions to model: 
 	\begin{itemize}
-		\item the class probability $p(Y=y) = (\pi,1-\pi), \pi\in[0,1]$
-		\item the class-conditional probability $p(X=x|Y=y)$, given by a pair of distributions over $\cX$, denoted $f_{\theta_0}$ and $f_{\theta_1}$.
+		\item the class probability $p(Y=y) = (\pi,1-\pi), \pi\in[0,1]$, and 
+		\item the class-conditional probability $p(X=x|Y=y)$, given by a two distributions over $\cX$, denoted $f_{\theta_0}$ and $f_{\theta_1}$.
 	\end{itemize}
 	Therefore, the classifier is 
 	\begin{align}
@@ -114,7 +114,7 @@ p_Y(y)
 \exp\!\left(-\frac{y}{2}\right),
 \qquad y>0.
 \]
-For an illustration see Fig.~\ref{fig:continuous_pf}.
+For an illustration of this case and other related examples, see Fig.~\ref{fig:continuous_pf}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/week1_pushforward_Gaussian_split.pdf}
@@ -157,7 +157,11 @@ Consider a PGM for the RV $Y$, with density $p_\theta(y)$, where $\theta\in\Thet
 	\end{equation} 
 \end{definition}
 
-%\NB{We abused notation above stating the joint pdf for the observations.}
+\textbf{NB}: We abused notation above stating the joint pdf for the observations.
+
+\begin{remark}
+	Very important: the likelihood function is not a probability/density function, as it is a function of the parameter. In particular, it is not true that $\int_\Theta L(\theta)\d \theta$ is one.	
+\end{remark}
 
 \begin{definition}[Maximum likelihood estimator]
 	The ML estimator is given by 

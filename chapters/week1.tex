@@ -78,6 +78,7 @@ Despite the abundant collection of well-studied statistical models, in some scen
 \end{remark}
 
 \begin{example}[Discrete pushforward]
+	\label{ex:discrete_pf}
 Let \(X\) be a discrete random variable taking values in \(\{1,2,3\}\) with
 \[
 \mathbb P(X=1)=0.2,\quad \mathbb P(X=2)=0.5,\quad \mathbb P(X=3)=0.3.
@@ -92,7 +93,12 @@ Then the pushforward \(T_\#\mathbb P\) satisfies
 \qquad
 (T_\#\mathbb P)(\{b\})=0.8.
 \]
-\missing{a diagram showing a source and a target measure}
+For an illustration see Fig.~\ref{fig:discrete_pf}.
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{img/week1_pushforward_discrete.pdf}
+	\caption{Source and pushforward distributions: discrete example.}
+	\label{fig:discrete_pf}
+\end{figure}
 \end{example}
 
 
@@ -107,7 +113,15 @@ p_Y(y)
 \exp\!\left(-\frac{y}{2}\right),
 \qquad y>0.
 \]
-\missing{a diagram showing a source and a target measure}
+For an illustration see Fig.~\ref{fig:continuous_pf}.
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{img/week1_pushforward_Gaussian_split.pdf}
+	\includegraphics[width=\textwidth]{img/week1_pushforward_Gaussian_log_sq.pdf}
+	\includegraphics[width=\textwidth]{img/week1_pushforward_unif_log_sq.pdf}
+	\includegraphics[width=\textwidth]{img/week1_pushforward_unif_GaussianQF.pdf}
+	\caption{Source and target distributions: continuous examples}
+	\label{fig:continuous_pf}
+\end{figure}
 
 \end{example}
 
